@@ -13,6 +13,13 @@ This will create a binary locally you can run commands against already, like so:
 
 `./godo -td="get paid, get fed, get sleep"`
 
+Copy the binary to your local bin to access the CLI anywhere.
+
+`sudo cp godo /usr/local/bin`
+
+Now you can just do plain `godo` commands:
+
+`godo -td="be smart, be fast, be precise"`
 
 
 ### Configure directory for your markdown TODO list files
