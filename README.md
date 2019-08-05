@@ -1,10 +1,10 @@
-### GODO
+## GODO
 
 Simple command line client for generating markdown TODO lists.
 
 You can have the markdown TODO list generated as a file in the directory of your choosing or have it printed to your terminal for easy copy and pasting.
 
-#### Building and Installation
+### Building and Installation
 Clone this repository and run the following command inside the repo:
 
 `go build -o godo output_util.go main.go`
@@ -15,7 +15,7 @@ This will create a binary locally you can run commands against already, like so:
 
 
 
-#### Configure directory for your markdown TODO list files
+### Configure directory for your markdown TODO list files
 
 **Note:** If no directory for outputting your markdown files is set or found, the markdown will be printed out to the terminal.
 
@@ -33,7 +33,7 @@ Or do it by setting the `TODO_PATH` environment variable:
 
 **Note:** Any directories passed in via the `-p` option take precedence over the value set in the `TODO_PATH` environment variable. 
 
-#### Tests
+### Tests
 
 Make sure you can do a `dep ensure` to pull in all the packages needed for running the tests
 
