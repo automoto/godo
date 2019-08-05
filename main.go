@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"os"
 )
 
 func main() {
@@ -15,7 +16,13 @@ func main() {
 	outputPath := getOutputPath(*pathFlagPtr)
 
 	outputMd := generateMd(parsedTodos, *titleFlagPtr)
-	exportMd(outputMd, outputPath)
+	if len(outputPath) > 1 {
+		file, err := os.Create(getFullOutputPath(outputPath))
+		handleError(err)
+		exportMd(outputMd, file)
+	} else {
+		printOutput(outputMd)
+	}
 }
 
 

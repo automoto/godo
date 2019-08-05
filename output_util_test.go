@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
@@ -20,5 +21,15 @@ func TestMakeDo(t *testing.T) {
 }
 
 func TestExportMd(t *testing.T) {
+	testMd := "- [ ] Do it"
+	b := &bytes.Buffer{}
+	exportMd(testMd, b)
+	assert.Equal(t, testMd, string(b.Bytes()))
+	assert.CallerInfo()
+}
 
+func TestGenerateFileName(t *testing.T) {
+	testResult := generateFileName()
+	assert.Contains(t, testResult, "checklist_")
+	assert.Contains(t, testResult, ".md")
 }

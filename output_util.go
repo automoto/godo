@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"io"
+	"log"
 	"os"
 	"strings"
 	"time"
@@ -23,6 +25,10 @@ func getOutputPath(p string) string{
 		return p
 	}
 	return os.Getenv("TODO_PATH")
+}
+
+func getFullOutputPath(p string) string {
+	return fmt.Sprintf("%s/%s", p, generateFileName())
 }
 
 func generateFileName() string{
@@ -51,17 +57,8 @@ func printOutput(todos string) {
 	fmt.Println(todos)
 }
 
-func exportMd(todos string, path string) {
-	if len(path) > 1 {
-		filePath := fmt.Sprintf("%s/%s", path, generateFileName())
-		f, err := os.Create(filePath)
-		handleError(err)
-
-		writtenBytes, err := f.WriteString(todos)
-		handleError(err)
-		fmt.Printf("Generated Markdown File Succesfully of Size: %d bytes\n", writtenBytes)
-		f.Sync()
-	} else {
-		printOutput(todos)
-	}
+func exportMd(todos string, file io.Writer) {
+	writtenBytes, err := fmt.Fprint(file, todos)
+	handleError(err)
+	log.Printf("Generated Markdown File Succesfully of Size: %d bytes\n", writtenBytes)
 }
