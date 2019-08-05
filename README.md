@@ -38,7 +38,13 @@ Or do it by setting the `TODO_PATH` environment variable:
 
 `export TODO_PATH="/home/your_path_goes_here"`
 
-**Note:** Any directories passed in via the `-p` option take precedence over the value set in the `TODO_PATH` environment variable. 
+**Note:** Any directories passed in via the `-p` option take precedence over the value set in the `TODO_PATH` environment variable.
+
+### Copy TODO list to your clip board
+
+In ubuntu we can copy our generated TODO list to the clipboard using `xclip`, like so:
+
+`./godo -cl="get paid, get fed, get sleep" | xclip -sel clip`
 
 ### Tests
 
