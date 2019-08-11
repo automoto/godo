@@ -11,7 +11,7 @@ Clone this repository and run the following command inside the repo:
 
 This will create a binary locally you can run commands against already, like so:
 
-`./godo -td="get paid, get fed, get sleep"`
+`./godo --td "get paid, get fed, get sleep"`
 
 Copy the binary to your local bin to access the CLI anywhere.
 
@@ -19,7 +19,7 @@ Copy the binary to your local bin to access the CLI anywhere.
 
 Now you can just do plain `godo` commands:
 
-`godo -td="be smart, be fast, be precise"`
+`godo --td "be smart, be fast, be precise"`
 
 
 ### Configure directory for your markdown TODO list files
@@ -44,7 +44,7 @@ Or do it by setting the `TODO_PATH` environment variable:
 
 In ubuntu we can copy our generated TODO list to the clipboard using `xclip`, like so:
 
-`./godo -cl="get paid, get fed, get sleep" | xclip -sel clip`
+`./godo -td="get paid, get fed, get sleep" | xclip -sel clip`
 
 ### Tests
 
